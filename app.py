@@ -39,7 +39,8 @@ if __name__=="__main__":
                     }
                prediction_in_words = prediction_column.replace(dict_replace)
                actual_output_in_words = actual_output.replace(dict_replace)
-               output_df = pd.DataFrame([prediction_in_words,actual_output_in_words])
+               output_df = pd.DataFrame({"prediction":prediction_column,
+                                         "prediction_in_words": prediction_in_words})
                logging.info("Displaying the prediction result in webpage")
                st.subheader("Result")
                st.dataframe(output_df)

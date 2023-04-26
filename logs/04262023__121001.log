@@ -1,0 +1,106 @@
+[ 2023-04-26 12:10:19,418 ] 16 root - INFO - Running the training pipeline
+[ 2023-04-26 12:10:19,418 ] 20 root - INFO - Starting data ingestion
+[ 2023-04-26 12:10:19,418 ] 16 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:19,418 ] 23 root - INFO - reading csv file as pandas dataframe
+[ 2023-04-26 12:10:19,418 ] 20 root - INFO - Reading csv file: C:\Users\Sudeep\Desktop\CreditCardDefault\UCI_Credit_Card.csv
+[ 2023-04-26 12:10:19,665 ] 22 root - INFO - Found columns: Index(['LIMIT_BAL', 'SEX', 'EDUCATION', 'MARRIAGE', 'AGE', 'PAY_1', 'PAY_2',
+       'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6', 'BILL_AMT1', 'BILL_AMT2',
+       'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6', 'PAY_AMT1',
+       'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6',
+       'default.payment.next.month'],
+      dtype='object')
+[ 2023-04-26 12:10:19,666 ] 23 root - INFO - Row and columns in df: (30000, 24)
+[ 2023-04-26 12:10:19,706 ] 29 root - INFO - Save data in feature store
+[ 2023-04-26 12:10:19,706 ] 34 root - INFO - Create feature store folder if not available
+[ 2023-04-26 12:10:19,709 ] 38 root - INFO - Save df to feature store folder
+[ 2023-04-26 12:10:20,315 ] 43 root - INFO - split dataset into train and test set
+[ 2023-04-26 12:10:20,330 ] 47 root - INFO - create dataset directory folder if not available
+[ 2023-04-26 12:10:20,330 ] 52 root - INFO - Save df to feature store folder
+[ 2023-04-26 12:10:20,916 ] 64 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\feature_store\\CreditCardDefault.csv', train_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\dataset\\train.csv', test_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\dataset\\test.csv')
+[ 2023-04-26 12:10:20,916 ] 23 root - INFO - Data ingestion completed and artifact: DataIngestionArtifact(feature_store_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\feature_store\\CreditCardDefault.csv', train_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\dataset\\train.csv', test_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_ingestion\\dataset\\test.csv')
+[ 2023-04-26 12:10:20,916 ] 22 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Validation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:20,916 ] 66 root - INFO - Reading train dataframe
+[ 2023-04-26 12:10:21,037 ] 68 root - INFO - Reading test dataframe
+[ 2023-04-26 12:10:21,068 ] 71 root - INFO - Drop null values colums from train df
+[ 2023-04-26 12:10:21,068 ] 45 root - INFO - selecting column name which contains null above to 0.2
+[ 2023-04-26 12:10:21,068 ] 48 root - INFO - Columns to drop: []
+[ 2023-04-26 12:10:21,084 ] 73 root - INFO - Drop null values colums from test df
+[ 2023-04-26 12:10:21,084 ] 45 root - INFO - selecting column name which contains null above to 0.2
+[ 2023-04-26 12:10:21,084 ] 48 root - INFO - Columns to drop: []
+[ 2023-04-26 12:10:21,131 ] 84 root - INFO - Write reprt in yaml file
+[ 2023-04-26 12:10:21,131 ] 89 root - INFO - Data validation artifact: DataValidationArtifact(report_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_validation\\report.yaml')
+[ 2023-04-26 12:10:21,131 ] 22 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Transformation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:21,318 ] 77 root - INFO - Before resampling in training set Input: (24000, 23) Target:(24000,)
+[ 2023-04-26 12:10:27,918 ] 79 root - INFO - After resampling in training set Input: (36776, 23) Target:(36776,)
+[ 2023-04-26 12:10:27,918 ] 81 root - INFO - Before resampling in testing set Input: (6000, 23) Target:(6000,)
+[ 2023-04-26 12:10:28,427 ] 83 root - INFO - After resampling in testing set Input: (9254, 23) Target:(9254,)
+[ 2023-04-26 12:10:28,443 ] 50 root - INFO - Entered the save_object method of utils
+[ 2023-04-26 12:10:28,458 ] 54 root - INFO - Exited the save_object method of utils
+[ 2023-04-26 12:10:28,458 ] 113 root - INFO - Data transformation object DataTransformationArtifact(transformer_object_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_transformation\\transformer\\transformer.pkl', transformed_train_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_transformation\\transformed\\train.npz', transformed_test_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\data_transformation\\transformed\\test.npz')
+[ 2023-04-26 12:10:28,458 ] 18 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Trainer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:28,458 ] 38 root - INFO - Loading train and test array.
+[ 2023-04-26 12:10:28,505 ] 42 root - INFO - Splitting input and target feature from both train and test arr.
+[ 2023-04-26 12:10:28,505 ] 46 root - INFO - Train the model
+[ 2023-04-26 12:10:43,299 ] 16 root - INFO - Running the training pipeline
+[ 2023-04-26 12:10:43,299 ] 20 root - INFO - Starting data ingestion
+[ 2023-04-26 12:10:43,299 ] 16 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:43,299 ] 23 root - INFO - reading csv file as pandas dataframe
+[ 2023-04-26 12:10:43,326 ] 29 root - INFO - Save data in feature store
+[ 2023-04-26 12:10:43,327 ] 34 root - INFO - Create feature store folder if not available
+[ 2023-04-26 12:10:43,375 ] 38 root - INFO - Save df to feature store folder
+[ 2023-04-26 12:10:44,361 ] 43 root - INFO - split dataset into train and test set
+[ 2023-04-26 12:10:44,373 ] 47 root - INFO - create dataset directory folder if not available
+[ 2023-04-26 12:10:44,374 ] 52 root - INFO - Save df to feature store folder
+[ 2023-04-26 12:10:45,223 ] 64 root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\feature_store\\CreditCardDefault.csv', train_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\dataset\\train.csv', test_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\dataset\\test.csv')
+[ 2023-04-26 12:10:45,223 ] 23 root - INFO - Data ingestion completed and artifact: DataIngestionArtifact(feature_store_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\feature_store\\CreditCardDefault.csv', train_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\dataset\\train.csv', test_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_ingestion\\dataset\\test.csv')
+[ 2023-04-26 12:10:45,223 ] 22 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Validation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:45,223 ] 66 root - INFO - Reading train dataframe
+[ 2023-04-26 12:10:45,390 ] 68 root - INFO - Reading test dataframe
+[ 2023-04-26 12:10:45,443 ] 71 root - INFO - Drop null values colums from train df
+[ 2023-04-26 12:10:45,443 ] 45 root - INFO - selecting column name which contains null above to 0.2
+[ 2023-04-26 12:10:45,443 ] 48 root - INFO - Columns to drop: []
+[ 2023-04-26 12:10:45,458 ] 73 root - INFO - Drop null values colums from test df
+[ 2023-04-26 12:10:45,458 ] 45 root - INFO - selecting column name which contains null above to 0.2
+[ 2023-04-26 12:10:45,458 ] 48 root - INFO - Columns to drop: []
+[ 2023-04-26 12:10:45,585 ] 84 root - INFO - Write reprt in yaml file
+[ 2023-04-26 12:10:45,594 ] 89 root - INFO - Data validation artifact: DataValidationArtifact(report_file_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_validation\\report.yaml')
+[ 2023-04-26 12:10:45,594 ] 22 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Transformation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:45,872 ] 77 root - INFO - Before resampling in training set Input: (24000, 23) Target:(24000,)
+[ 2023-04-26 12:10:54,695 ] 79 root - INFO - After resampling in training set Input: (36776, 23) Target:(36776,)
+[ 2023-04-26 12:10:54,695 ] 81 root - INFO - Before resampling in testing set Input: (6000, 23) Target:(6000,)
+[ 2023-04-26 12:10:55,968 ] 83 root - INFO - After resampling in testing set Input: (9254, 23) Target:(9254,)
+[ 2023-04-26 12:10:56,036 ] 50 root - INFO - Entered the save_object method of utils
+[ 2023-04-26 12:10:56,051 ] 54 root - INFO - Exited the save_object method of utils
+[ 2023-04-26 12:10:56,051 ] 113 root - INFO - Data transformation object DataTransformationArtifact(transformer_object_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_transformation\\transformer\\transformer.pkl', transformed_train_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_transformation\\transformed\\train.npz', transformed_test_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\data_transformation\\transformed\\test.npz')
+[ 2023-04-26 12:10:56,051 ] 18 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Trainer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 12:10:56,051 ] 38 root - INFO - Loading train and test array.
+[ 2023-04-26 12:10:56,156 ] 42 root - INFO - Splitting input and target feature from both train and test arr.
+[ 2023-04-26 12:10:56,157 ] 46 root - INFO - Train the model
+[ 2023-04-26 12:11:14,483 ] 49 root - INFO - Calculating f1 train score
+[ 2023-04-26 12:11:15,301 ] 53 root - INFO - Calculating f1 test score
+[ 2023-04-26 12:11:15,501 ] 57 root - INFO - train score:0.900211585749414 and tests score 0.8715480692104962
+[ 2023-04-26 12:11:15,501 ] 61 root - INFO - Checking if our model is underfitting or not
+[ 2023-04-26 12:11:15,501 ] 66 root - INFO - Checking if our model is overfiiting or not
+[ 2023-04-26 12:11:15,501 ] 73 root - INFO - Saving mode object
+[ 2023-04-26 12:11:15,501 ] 50 root - INFO - Entered the save_object method of utils
+[ 2023-04-26 12:11:15,517 ] 54 root - INFO - Exited the save_object method of utils
+[ 2023-04-26 12:11:15,517 ] 77 root - INFO - Prepare the artifact
+[ 2023-04-26 12:11:15,517 ] 80 root - INFO - Model trainer artifact: ModelTrainEvalArtifact(model_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121019\\model_trainer\\model\\model.pkl', f1_train_score=0.900211585749414, f1_test_score=0.8715480692104962)
+[ 2023-04-26 12:11:15,517 ] 20 root - INFO - getting the file paths of the required objects
+[ 2023-04-26 12:11:32,584 ] 49 root - INFO - Calculating f1 train score
+[ 2023-04-26 12:11:33,037 ] 53 root - INFO - Calculating f1 test score
+[ 2023-04-26 12:11:33,146 ] 57 root - INFO - train score:0.900211585749414 and tests score 0.8715480692104962
+[ 2023-04-26 12:11:33,146 ] 61 root - INFO - Checking if our model is underfitting or not
+[ 2023-04-26 12:11:33,146 ] 66 root - INFO - Checking if our model is overfiiting or not
+[ 2023-04-26 12:11:33,146 ] 73 root - INFO - Saving mode object
+[ 2023-04-26 12:11:33,146 ] 50 root - INFO - Entered the save_object method of utils
+[ 2023-04-26 12:11:33,162 ] 54 root - INFO - Exited the save_object method of utils
+[ 2023-04-26 12:11:33,162 ] 77 root - INFO - Prepare the artifact
+[ 2023-04-26 12:11:33,162 ] 80 root - INFO - Model trainer artifact: ModelTrainEvalArtifact(model_path='C:\\Users\\Sudeep\\Desktop\\CreditCardDefault\\artifact\\04262023__121043\\model_trainer\\model\\model.pkl', f1_train_score=0.900211585749414, f1_test_score=0.8715480692104962)
+[ 2023-04-26 12:11:33,162 ] 20 root - INFO - getting the file paths of the required objects
+[ 2023-04-26 12:11:33,162 ] 31 root - INFO - Starting the prediction
+[ 2023-04-26 12:11:33,162 ] 26 root - INFO - Reading file :UploadedFile(id=1, name='test.csv', type='text/csv', size=559)
+[ 2023-04-26 12:11:33,162 ] 31 root - INFO - Saving the input file
+[ 2023-04-26 12:11:33,162 ] 41 root - INFO - Loading transformer to transform dataset
+[ 2023-04-26 12:11:33,177 ] 47 root - INFO - Loading model to make prediction
+[ 2023-04-26 12:11:33,318 ] 43 root - INFO - Displaying the prediction result in webpage

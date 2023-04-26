@@ -1,0 +1,5 @@
+[ 2023-04-26 22:53:43,085 ] 16 root - INFO - Running the training pipeline
+[ 2023-04-26 22:53:43,085 ] 20 root - INFO - Starting data ingestion
+[ 2023-04-26 22:53:43,086 ] 16 root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Ingestion <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[ 2023-04-26 22:53:43,086 ] 23 root - INFO - reading csv file as pandas dataframe
+[ 2023-04-26 22:53:43,088 ] 20 root - INFO - Reading csv file: \\CreditCardDefault\\UCI_Credit_Card.csv

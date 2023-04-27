@@ -32,13 +32,11 @@ if __name__=="__main__":
                output_file_path = start_batch_prediction(input_file,transformer_object_path,model_path)
                df = pd.read_csv(output_file_path)
                prediction_column = df["Prediction"]
-               actual_output = df["actual_output"]
                dict_replace = {
                     1 : "Defaulter",
                     0: "Not a Defaulter"
                     }
                prediction_in_words = prediction_column.replace(dict_replace)
-               actual_output_in_words = actual_output.replace(dict_replace)
                output_df = pd.DataFrame({"prediction":prediction_column,
                                          "prediction_in_words": prediction_in_words})
                logging.info("Displaying the prediction result in webpage")

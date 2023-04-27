@@ -30,7 +30,7 @@ Step2: Upload the csv file for prediction
 
 Step3: Wait for the prediction.
 
-For making it easier for testing the model I have provided
+Note: For making it easier for testing the model I have provided
 some test files in the github repository of this
 project.You can download one of those csv files and
 can use them for testing the app.

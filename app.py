@@ -8,8 +8,11 @@ import streamlit as st
 import pandas as pd
 
 st.header("Credit Card Default Prediction Application")
+url = "https://github.com/aangatla/CreditCardDefaultProject/tree/main/Test"
 
 st.subheader("Please upload the input csv file:")
+st.write("To get CSV files for testing the app go to [link](%s) and download the files." % url)
+
 input_file = st.file_uploader("Upload the file")
 
 print(__name__)
